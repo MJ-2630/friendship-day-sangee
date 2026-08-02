@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Special Surprise for Sangee 💖</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Pacifico&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  min-height:100dvh;
+  font-family:"Poppins",sans-serif;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f7d6e6,
+    #e5d8ff,
+    #fff0d9
+  );
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  padding:20px;
+
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+/* BACKGROUND */
+
+.background{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+
+.blur-circle{
+  position:absolute;
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  filter:blur(20px);
+  opacity:.45;
+}
+
+.circle1{
+  top:-70px;
+  left:-70px;
+  background:#ffb8d4;
+}
+
+.circle2{
+  top:35%;
+  right:-100px;
+  background:#c9a9ff;
+}
+
+.circle3{
+  bottom:-100px;
+  left:15%;
+  background:#ffd49a;
+}
+
+/* FLOATING EMOJIS */
+
+.float{
+  position:absolute;
+  font-size:35px;
+
+  animation:
+  floatAnimation
+  5s
+  ease-in-out
+  infinite;
+}
+
+.f1{
+  top:8%;
+  left:7%;
+}
+
+.f2{
+  top:14%;
+  right:7%;
+  animation-delay:1s;
+}
+
+.f3{
+  bottom:8%;
+  left:7%;
+  animation-delay:2s;
+}
+
+.f4{
+  bottom:10%;
+  right:7%;
+  animation-delay:3s;
+}
+
+.f5{
+  top:47%;
+  left:2%;
+  animation-delay:1.5s;
+}
+
+.f6{
+  top:45%;
+  right:2%;
+  animation-delay:2.5s;
+}
+
+/* MAIN CARD */
+
+.app{
+  width:100%;
+  max-width:450px;
+  min-height:720px;
+
+  position:relative;
+  z-index:5;
+
+  margin:auto;
+
+  border-radius:38px;
+
+  background:
+  rgba(
+    255,
+    255,
+    255,
+    .80
+  );
+
+  backdrop-filter:
+  blur(18px);
+
+  border:
+  2px solid
+  rgba(
+    255,
+    255,
+    255,
+    .95
+  );
+
+  box-shadow:
+  0 25px 70px
+  rgba(
+    117,
+    75,
+    135,
+    .25
+  );
+
+  overflow:hidden;
+}
+
+/* PAGES */
+
+.page{
+  display:none;
+
+  width:100%;
+  min-height:720px;
+
+  padding:
+  80px
+  22px
+  45px;
+
+  text-align:center;
+
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  animation:
+  pageEnter
+  .65s
+  ease;
+}
+
+.page.active{
+  display:flex;
+}
+
+/* TEXT */
+
+.small-title{
+  color:#9a5ca8;
+  font-size:.82rem;
+  font-weight:800;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+h1{
+  font-family:
+  "Pacifico",
+  cursive;
+
+  color:#a44b7c;
+
+  font-size:2.05rem;
+
+  line-height:1.4;
+
+  margin-bottom:15px;
+}
+
+.description{
+  max-width:340px;
+
+  color:#69546c;
+
+  font-size:.96rem;
+
+  line-height:1.8;
+}
+
+/* BUTTON */
+
+.main-btn{
+  border:none;
+
+  margin-top:28px;
+
+  padding:
+  16px
+  28px;
+
+  border-radius:50px;
+
+  font-family:
+  "Poppins",
+  sans-serif;
+
+  font-size:.94rem;
+
+  font-weight:700;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #d66d9d,
+    #a56bd8
+  );
+
+  box-shadow:
+  0 12px 25px
+  rgba(
+    174,
+    82,
+    138,
+    .30
+  );
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.main-btn:hover{
+  transform:
+  translateY(-3px);
+}
+
+.main-btn:active{
+  transform:
+  scale(.94);
+}
+
+/* MUSIC */
+
+.music-btn{
+  position:absolute;
+
+  top:15px;
+  right:15px;
+
+  width:48px;
+  height:48px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:white;
+
+  font-size:20px;
+
+  box-shadow:
+  0 7px 18px
+  rgba(
+    120,
+    70,
+    130,
+    .18
+  );
+
+  cursor:pointer;
+
+  z-index:50;
+}
+
+/* GIFT */
+
+.gift{
+  position:relative;
+
+  width:185px;
+  height:160px;
+
+  margin:
+  5px
+  auto
+  25px;
+
+  animation:
+  giftFloat
+  2s
+  ease-in-out
+  infinite;
+}
+
+.gift-body{
+  position:absolute;
+
+  bottom:0;
+
+  width:185px;
+  height:120px;
+
+  border-radius:15px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #e984ae,
+    #bd87e8
+  );
+
+  box-shadow:
+  inset
+  0
+  -13px
+  0
+  rgba(
+    120,
+    50,
+    100,
+    .12
+  );
+}
+
+.gift-lid{
+  position:absolute;
+
+  top:22px;
+  left:-8px;
+
+  width:201px;
+  height:43px;
+
+  border-radius:14px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #d86e9f,
+    #a76bd4
+  );
+
+  z-index:4;
+}
+
+.ribbon{
+  position:absolute;
+
+  left:75px;
+  bottom:0;
+
+  width:36px;
+  height:120px;
+
+  background:#fff2a8;
+
+  z-index:3;
+}
+
+.bow{
+  position:absolute;
+
+  top:-15px;
+  left:52px;
+
+  font-size:72px;
+
+  z-index:6;
+}
+
+/* REPORT */
+
+.report{
+  width:100%;
+  max-width:350px;
+
+  padding:
+  20px
+  17px;
+
+  border-radius:27px;
+
+  background:
+  linear-gradient(
+    145deg,
+    #ffffff,
+    #fff2f8
+  );
+
+  box-shadow:
+  0 14px 35px
+  rgba(
+    130,
+    70,
+    120,
+    .16
+  );
+}
+
+.report-title{
+  color:#a44b7c;
+  font-weight:800;
+  margin-bottom:13px;
+}
+
+.report-row{
+  display:flex;
+
+  justify-content:
+  space-between;
+
+  gap:10px;
+
+  padding:
+  11px
+  4px;
+
+  border-bottom:
+  1px dashed
+  #e7b9d0;
+
+  color:#725d72;
+
+  font-size:.88rem;
+}
+
+.report-row:last-child{
+  border:none;
+}
+
+.report-row strong{
+  color:#a44b7c;
+}
+
+/* FILE */
+
+.file-card{
+  width:100%;
+  max-width:350px;
+
+  padding:
+  23px
+  18px;
+
+  border-radius:22px;
+
+  background:#fffaf0;
+
+  border:
+  3px dashed
+  #d99ac0;
+
+  box-shadow:
+  0 12px 30px
+  rgba(
+    130,
+    70,
+    120,
+    .14
+  );
+}
+
+.file-icon{
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+.file-card p{
+  color:#6c596b;
+  font-size:.91rem;
+  line-height:1.9;
+}
+
+/* CUTE FRIENDSHIP GIF */
+
+.gif-box{
+  width:100%;
+  max-width:310px;
+
+  height:210px;
+
+  margin:
+  18px
+  auto
+  5px;
+
+  border-radius:28px;
+
+  overflow:hidden;
+
+  background:#fff0f7;
+
+  box-shadow:
+  0 12px 30px
+  rgba(
+    140,
+    70,
+    125,
+    .18
+  );
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+.gif-box img{
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+}
+
+/* LOADING */
+
+.loading-card{
+  width:100%;
+  max-width:340px;
+
+  padding:
+  28px
+  20px;
+
+  border-radius:28px;
+
+  background:
+  linear-gradient(
+    145deg,
+    #ffffff,
+    #fff0f7
+  );
+
+  box-shadow:
+  0 14px 35px
+  rgba(
+    130,
+    70,
+    120,
+    .15
+  );
+}
+
+.loading-emoji{
+  font-size:65px;
+
+  animation:
+  bounce
+  1.4s
+  infinite;
+}
+
+.loading-text{
+  min-height:52px;
+
+  margin:
+  17px
+  0;
+
+  color:#a44b7c;
+
+  font-weight:700;
+
+  line-height:1.5;
+}
+
+.progress{
+  width:100%;
+
+  height:19px;
+
+  background:#f2d5e3;
+
+  border-radius:30px;
+
+  overflow:hidden;
+}
+
+.progress-bar{
+  width:0;
+
+  height:100%;
+
+  border-radius:30px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #df719f,
+    #a76cdb
+  );
+
+  transition:
+  width
+  1s
+  ease;
+}
+
+/* FINAL */
+
+.final-gift{
+  font-size:105px;
+
+  animation:
+  giftFloat
+  1.8s
+  ease-in-out
+  infinite;
+}
+
+.final-list{
+  width:100%;
+  max-width:340px;
+
+  margin-top:12px;
+
+  padding:18px;
+
+  border-radius:25px;
+
+  background:
+  rgba(
+    255,
+    255,
+    255,
+    .85
+  );
+
+  box-shadow:
+  0 12px 30px
+  rgba(
+    130,
+    70,
+    120,
+    .14
+  );
+}
+
+.final-list p{
+  padding:6px;
+  color:#6b586a;
+}
+
+.final-message{
+  max-width:340px;
+
+  margin-top:18px;
+
+  color:#685467;
+
+  line-height:1.8;
+
+  font-size:.91rem;
+}
+
+/* FULL SCREEN CELEBRATION */
+
+.celebration-screen{
+  position:fixed;
+
+  inset:0;
+
+  z-index:1000;
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-direction:column;
+
+  text-align:center;
+
+  padding:25px;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(
+      255,
+      236,
+      246,
+      .96
+    ),
+    rgba(
+      211,
+      171,
+      241,
+      .96
+    )
+  );
+
+  animation:
+  celebrationIn
+  .6s
+  ease;
+}
+
+.celebration-screen.show{
+  display:flex;
+}
+
+.celebration-title{
+  font-family:
+  "Pacifico",
+  cursive;
+
+  color:#a34276;
+
+  font-size:
+  clamp(
+    2.5rem,
+    9vw,
+    5.5rem
+  );
+
+  line-height:1.35;
+
+  text-shadow:
+  0 5px 20px
+  rgba(
+    255,
+    255,
+    255,
+    .9
+  );
+
+  animation:
+  titlePop
+  1s
+  ease
+  infinite
+  alternate;
+}
+
+.celebration-name{
+  margin-top:15px;
+
+  font-size:
+  clamp(
+    1.4rem,
+    5vw,
+    2.3rem
+  );
+
+  font-weight:800;
+
+  color:#7c4e98;
+}
+
+.close-btn{
+  margin-top:35px;
+
+  border:none;
+
+  padding:
+  14px
+  25px;
+
+  border-radius:50px;
+
+  background:white;
+
+  color:#a44b7c;
+
+  font-family:
+  "Poppins",
+  sans-serif;
+
+  font-weight:700;
+
+  cursor:pointer;
+}
+
+/* FALLING EMOJIS */
+
+.falling{
+  position:fixed;
+
+  top:-60px;
+
+  z-index:1100;
+
+  pointer-events:none;
+
+  animation:
+  fall
+  linear
+  forwards;
+}
+
+/* ANIMATIONS */
+
+@keyframes pageEnter{
+
+  from{
+    opacity:0;
+
+    transform:
+    translateY(25px)
+    scale(.96);
+  }
+
+  to{
+    opacity:1;
+
+    transform:
+    translateY(0)
+    scale(1);
+  }
+
+}
+
+@keyframes giftFloat{
+
+  0%,
+  100%{
+    transform:
+    translateY(0);
+  }
+
+  50%{
+    transform:
+    translateY(-15px);
+  }
+
+}
+
+@keyframes floatAnimation{
+
+  0%,
+  100%{
+    transform:
+    translateY(0)
+    rotate(-8deg);
+  }
+
+  50%{
+    transform:
+    translateY(-18px)
+    rotate(8deg);
+  }
+
+}
+
+@keyframes bounce{
+
+  0%,
+  100%{
+    transform:
+    scale(1)
+    rotate(-7deg);
+  }
+
+  50%{
+    transform:
+    scale(1.12)
+    rotate(7deg);
+  }
+
+}
+
+@keyframes fall{
+
+  to{
+    transform:
+    translateY(115vh)
+    rotate(720deg);
+
+    opacity:0;
+  }
+
+}
+
+@keyframes celebrationIn{
+
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
+@keyframes titlePop{
+
+  from{
+    transform:
+    scale(.96);
+  }
+
+  to{
+    transform:
+    scale(1.05);
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+  body{
+    padding:0;
+  }
+
+  .app{
+    max-width:none;
+
+    min-height:100dvh;
+
+    border-radius:0;
+  }
+
+  .page{
+    min-height:100dvh;
+
+    padding:
+    80px
+    17px
+    40px;
+  }
+
+  h1{
+    font-size:1.85rem;
+  }
+
+  .gift{
+    transform:
+    scale(.88);
+
+    margin-bottom:15px;
+  }
+
+  .gif-box{
+    height:185px;
+  }
+
+}
+
+/* SHORT LAPTOP */
+
+@media(
+  max-height:750px
+)
+and
+(
+  min-width:481px
+){
+
+  body{
+    padding:15px;
+  }
+
+  .app{
+    min-height:650px;
+  }
+
+  .page{
+    min-height:650px;
+
+    padding:
+    70px
+    22px
+    35px;
+  }
+
+  h1{
+    font-size:1.8rem;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background">
+
+<div class="blur-circle circle1"></div>
+<div class="blur-circle circle2"></div>
+<div class="blur-circle circle3"></div>
+
+<div class="float f1">🦋</div>
+<div class="float f2">✨</div>
+<div class="float f3">💖</div>
+<div class="float f4">🎀</div>
+<div class="float f5">🫶</div>
+<div class="float f6">🌸</div>
+
+</div>
+
+<div class="app">
+
+<button
+class="music-btn"
+id="musicButton"
+onclick="toggleMusic()"
+>
+🔊
+</button>
+
+<audio
+id="bgMusic"
+loop
+>
+
+<source
+src="music.mpeg"
+type="audio/mpeg">
+
+</audio>
+
+<!-- PAGE 1 -->
+
+<section
+class="page active"
+id="page1"
+>
+
+<div class="gift">
+
+<div class="bow">
+🎀
+</div>
+
+<div class="gift-lid"></div>
+
+<div class="gift-body"></div>
+
+<div class="ribbon"></div>
+
+</div>
+
+<p class="small-title">
+
+A SPECIAL SURPRISE
+
+</p>
+
+<h1>
+
+Hey Sangee! 💖
+
+</h1>
+
+<p class="description">
+
+Unakkaga oru small
+Friendship Day surprise ✨
+
+<br><br>
+
+A small surprise made
+especially for you 💕🎁
+
+</p>
+
+<button
+class="main-btn"
+onclick="openGift()"
+>
+
+Open Your Surprise 🎁
+
+</button>
+
+</section>
+
+<!-- PAGE 2 -->
+
+<section
+class="page"
+id="page2"
+>
+
+<p class="small-title">
+
+OFFICIAL REPORT 📋
+
+</p>
+
+<h1>
+
+Friendship Report 💖
+
+</h1>
+
+<div class="report">
+
+<p class="report-title">
+
+SANGEE & SUBIKSHA
+
+</p>
+
+<div class="report-row">
+
+<span>
+💖 Friendship Level
+</span>
+
+<strong>
+100%
+</strong>
+
+</div>
+
+<div class="report-row">
+
+<span>
+⚔️ Fighting Level
+</span>
+
+<strong>
+999%
+</strong>
+
+</div>
+
+<div class="report-row">
+
+<span>
+😇 Peaceful Moments
+</span>
+
+<strong>
+Rarely Found
+</strong>
+
+</div>
+
+<div class="report-row">
+
+<span>
+😂 Random Fights
+</span>
+
+<strong>
+Unlimited
+</strong>
+
+</div>
+
+<div class="report-row">
+
+<span>
+🫶 Bond Status
+</span>
+
+<strong>
+Permanent
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="main-btn"
+onclick="nextPage(2)"
+>
+
+Next Surprise ✨
+
+</button>
+
+</section>
+
+<!-- PAGE 3 -->
+
+<section
+class="page"
+id="page3"
+>
+
+<p class="small-title">
+
+FRIENDSHIP FILE 🔐
+
+</p>
+
+<h1>
+
+A Little Secret
+
+</h1>
+
+<div class="file-card">
+
+<div class="file-icon">
+
+💌
+
+</div>
+
+<p>
+
+<strong>
+Name:
+</strong>
+
+Sangee 💖
+
+<br>
+
+<strong>
+Friend Type:
+</strong>
+
+Cute and unpredictable 🥹
+
+<br>
+
+<strong>
+Special Skill:
+</strong>
+
+Making every moment
+more memorable 😂
+
+<br>
+
+<strong>
+Friendship Status:
+</strong>
+
+Lifetime member 🫶
+
+</p>
+
+</div>
+
+<!-- CHANGED GIF -->
+
+<div class="gif-box">
+
+<img
+src="img2.jpeg"
+alt="Cute Friendship GIF"
+>
+
+</div>
+
+<button
+class="main-btn"
+onclick="nextPage(3)"
+>
+
+Continue 💕
+
+</button>
+
+</section>
+
+<!-- PAGE 4 -->
+
+<section
+class="page"
+id="page4"
+>
+
+<p class="small-title">
+
+CALCULATING... ⏳
+
+</p>
+
+<h1>
+
+Friendship Analysis
+
+</h1>
+
+<div class="loading-card">
+
+<div class="loading-emoji">
+
+💭✨
+
+</div>
+
+<p
+class="loading-text"
+id="loadingText"
+>
+
+Collecting memories...
+
+</p>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar"
+></div>
+
+</div>
+
+</div>
+
+<button
+class="main-btn"
+id="loadingNext"
+onclick="nextPage(4)"
+style="display:none"
+>
+
+See Result 👀
+
+</button>
+
+</section>
+
+<!-- PAGE 5 -->
+
+<section
+class="page"
+id="page5"
+>
+
+<p class="small-title">
+
+FINAL RESULT 💖
+
+</p>
+
+<h1>
+
+Our Friendship
+
+</h1>
+
+<!-- CHANGED GIF -->
+
+<div class="gif-box">
+
+<img
+src="img3.jpeg"
+alt="Best Friends GIF"
+>
+
+</div>
+
+<p class="description">
+
+Fight pannuvom ⚔️
+
+<br>
+
+Kovam paduvom 😤
+
+<br>
+
+Konjam time
+pesama iruppom 😶
+
+<br>
+
+Apram normal-ah
+pesiduvom 😂
+
+<br><br>
+
+<strong>
+
+But our friendship
+always stays 💖
+
+</strong>
+
+</p>
+
+<button
+class="main-btn"
+onclick="nextPage(5)"
+>
+
+Open Final Gift 🎁
+
+</button>
+
+</section>
+
+<!-- PAGE 6 -->
+
+<section
+class="page"
+id="page6"
+>
+
+<p class="small-title">
+
+FINAL GIFT ✨
+
+</p>
+
+<div class="final-gift">
+
+🎁
+
+</div>
+
+<h1>
+
+Happy Friendship Day,
+Sangee! 💖
+
+</h1>
+
+<div class="final-list">
+
+<p>
+🎁 Unlimited Memories
+</p>
+
+<p>
+⚔️ Unlimited Fights
+</p>
+
+<p>
+😂 Unlimited Fun
+</p>
+
+<p>
+🫶 One Permanent Friendship
+</p>
+
+</div>
+
+<p class="final-message">
+
+Namma friendship-la
+fights irundhaalum,
+fun irundhaalum,
+namma bond always special 💖
+
+<br><br>
+
+Nee enakku romba
+special friend 🫶✨
+
+<br><br>
+
+<strong>
+
+From Subiksha 💕
+
+</strong>
+
+</p>
+
+<button
+class="main-btn"
+onclick="celebrate()"
+>
+
+Celebrate 🎉
+
+</button>
+
+</section>
+
+</div>
+
+<!-- FULL SCREEN CELEBRATION -->
+
+<div
+class="celebration-screen"
+id="celebrationScreen"
+>
+
+<div class="celebration-title">
+
+Happy Friendship Day! 💖
+
+</div>
+
+<div class="celebration-name">
+
+Sangee ✨🫶
+
+</div>
+
+<button
+class="close-btn"
+onclick="closeCelebration()"
+>
+
+Back to Gift 💕
+
+</button>
+
+</div>
+
+<script>
+
+const music =
+document.getElementById(
+"bgMusic"
+);
+
+const musicButton =
+document.getElementById(
+"musicButton"
+);
+
+function openGift(){
+
+music.volume=.35;
+
+music.play()
+.catch(
+function(){
+musicButton.innerHTML="🔇";
+}
+);
+
+createFallingEmojis();
+
+nextPage(1);
+
+}
+
+function nextPage(page){
+
+document
+.getElementById(
+"page"+page
+)
+.classList
+.remove(
+"active"
+);
+
+document
+.getElementById(
+"page"+(page+1)
+)
+.classList
+.add(
+"active"
+);
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+if(
+page+1===4
+){
+
+startLoading();
+
+}
+
+}
+
+function startLoading(){
+
+const bar=
+document
+.getElementById(
+"progressBar"
+);
+
+const text=
+document
+.getElementById(
+"loadingText"
+);
+
+setTimeout(
+
+function(){
+
+bar.style.width="35%";
+
+text.innerHTML=
+"Collecting memories... 📸";
+
+},
+
+400
+
+);
+
+setTimeout(
+
+function(){
+
+bar.style.width="70%";
+
+text.innerHTML=
+"Counting fights... ⚔️😂";
+
+},
+
+1300
+
+);
+
+setTimeout(
+
+function(){
+
+bar.style.width="100%";
+
+text.innerHTML=
+"Result: Too many memories, but one permanent friendship 💖";
+
+},
+
+2300
+
+);
+
+setTimeout(
+
+function(){
+
+document
+.getElementById(
+"loadingNext"
+)
+.style.display=
+"inline-block";
+
+},
+
+3300
+
+);
+
+}
+
+function toggleMusic(){
+
+if(
+music.paused
+){
+
+music.play();
+
+musicButton.innerHTML=
+"🔊";
+
+}
+
+else{
+
+music.pause();
+
+musicButton.innerHTML=
+"🔇";
+
+}
+
+}
+
+function celebrate(){
+
+document
+.getElementById(
+"celebrationScreen"
+)
+.classList
+.add(
+"show"
+);
+
+createFallingEmojis();
+
+setTimeout(
+createFallingEmojis,
+700
+);
+
+setTimeout(
+createFallingEmojis,
+1400
+);
+
+}
+
+function closeCelebration(){
+
+document
+.getElementById(
+"celebrationScreen"
+)
+.classList
+.remove(
+"show"
+);
+
+}
+
+function createFallingEmojis(){
+
+const emojis=[
+
+"💖",
+"💕",
+"🫶",
+"✨",
+"🎉",
+"🎀",
+"🌸",
+"🦋",
+"🎁",
+"💗",
+"🥳"
+
+];
+
+for(
+
+let i=0;
+
+i<90;
+
+i++
+
+){
+
+const item=
+document
+.createElement(
+"span"
+);
+
+item.className=
+"falling";
+
+item.innerHTML=
+
+emojis[
+
+Math.floor(
+
+Math.random()
+*
+emojis.length
+
+)
+
+];
+
+item.style.left=
+
+Math.random()
+*
+100
++
+"vw";
+
+item.style.fontSize=
+
+18+
+Math.random()
+*
+28
++
+"px";
+
+item.style.animationDuration=
+
+2.5+
+Math.random()
+*
+2.5
++
+"s";
+
+document
+.body
+.appendChild(
+item
+);
+
+setTimeout(
+
+function(){
+
+item.remove();
+
+},
+
+5500
+
+);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
